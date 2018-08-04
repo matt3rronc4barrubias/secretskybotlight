@@ -203,4 +203,4 @@ if(cmd === `${prefix}kick`){
 });
 
 
-bot.login(tokenfile.token)
+bot.login(process.env.BOT_TOKEN);
