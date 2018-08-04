@@ -1,10 +1,13 @@
-﻿const botconfig = require("./botconfig.json");
+const botconfig = require("./botconfig.json");
 const tokenfile = require("./token.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 let coins = require("./coins.json");
+let xp = require("./xp.json");
+let purple = botconfig.purple;
+
 
 fs.readdir("./commands/", (err, files) => {
     if(err) console.log(err);
@@ -59,6 +62,10 @@ if(commandfile) commandfile.run(bot,message,args);
                 value: "Play some skywars and win if you can!"
               },
               {
+                name: "/play_bedwars",
+                value: "Play some  bedwars and win if you can!"
+              },
+              {
                 name: "/warn [user] [reason]",
                 value: "Warn a user - Staff Use Only"
               },
@@ -86,7 +93,18 @@ if(commandfile) commandfile.run(bot,message,args);
                 name: "/ping",
                 value: "Pong!"
               },
-
+              {
+                name: "/xp",
+                value: "Check you current XP stats on the server!"
+              },
+              {
+                name: "/statistics",
+                value: "Bot Statistics!!"
+              },
+              {
+                name: "/serverstats",
+                value: "SkyLight Server Statistics!"
+              },
               {
                 name: "/report",
                 value: "Report a user that has been breaking the rules, for staff to be alerted."
@@ -202,5 +220,39 @@ if(cmd === `${prefix}kick`){
 
 });
 
+let xpAdd = Math.floor(Math.random() * 7) + 8;
+  console.log(xpAdd);
+
+  if(!xp[message.author.id]){
+    xp[message.author.id] = {
+      xp: 0,
+      level: 1
+    };
+  }
+
+
+  let curxp = xp[message.author.id].xp;
+  let curlvl = xp[message.author.id].level;
+  let nxtLvl = xp[message.author.id].level * 300;
+  xp[message.author.id].xp =  curxp + xpAdd;
+  if(nxtLvl <= xp[message.author.id].xp){
+    xp[message.author.id].level = curlvl + 1;
+    let lvlup = new Discord.RichEmbed()
+    .setTitle("Level Up!")
+    .setColor(purple)
+    .addField("New Level", curlvl + 1);
+
+    message.channel.send(lvlup).then(msg => {msg.delete(5000)});
+  }
+  fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+    if(err) console.log(err)
+  });
+
+  if(cmd === `${prefix}ping`){
+
+  message.channel.send(`Pong! Latency is ${message.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(Client.ping)}ms`)
+
+  return;
+  }
 
 bot.login(process.env.BOT_TOKEN);
