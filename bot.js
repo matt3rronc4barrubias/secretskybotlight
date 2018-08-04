@@ -50,7 +50,7 @@ if(commandfile) commandfile.run(bot,message,args);
               name: bot.user.username,
       // Lol this wouldn't work idk | Try looking at the documentation //      icon_url: client.user.avatarURL
             },
-            title: "Commands Help For SkyLight Rebirht",
+            title: "Commands Help For SkyLight Rebirth",
             url: "http://google.com",
             description: "Commands Help for SkyLight Bot!",
             fields: [{
@@ -102,6 +102,18 @@ if(commandfile) commandfile.run(bot,message,args);
                 value: "Bot Statistics!!"
               },
               {
+                name: "/transfer",
+                value: "Transfer coins to other players!"
+              },
+              {
+                name: "/clear",
+                value: "Clear Chat - Staff Only"
+              },
+              {
+                name: "/mute",
+                value: "Mute Players - Staff Only"
+              },
+              {
                 name: "/serverstats",
                 value: "SkyLight Server Statistics!"
               },
@@ -110,18 +122,16 @@ if(commandfile) commandfile.run(bot,message,args);
                 value: "Report a user that has been breaking the rules, for staff to be alerted."
               }
 
-        
+
             ],
             timestamp: new Date(),
             footer: {
               icon_url: bot.user.avatarURL,
               text: "© xFlqshlight#8645 SkyLight Bot"
             }
-          }
-        });
-    
-    
-    }
+          }   
+    });
+  }
 	
 	//How I fixed tagging channels
 	// - Do <#SERVER_ID>
@@ -255,6 +265,5 @@ let xpAdd = Math.floor(Math.random() * 7) + 8;
   return;
   }
 
-});
-
+    });
 bot.login(process.env.BOT_TOKEN);
