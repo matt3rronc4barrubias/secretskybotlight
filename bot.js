@@ -218,7 +218,7 @@ if(cmd === `${prefix}kick`){
           message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
           }
 
-});
+
 
 let xpAdd = Math.floor(Math.random() * 7) + 8;
   console.log(xpAdd);
@@ -250,9 +250,11 @@ let xpAdd = Math.floor(Math.random() * 7) + 8;
 
   if(cmd === `${prefix}ping`){
 
-  message.channel.send(`Pong! Latency is ${message.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(Client.ping)}ms`)
+  message.channel.send(`Pong! Latency is ${message.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`)
 
   return;
   }
+
+});
 
 bot.login(process.env.BOT_TOKEN);
