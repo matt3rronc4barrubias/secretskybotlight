@@ -290,4 +290,4 @@ let xpAdd = Math.floor(Math.random() * 7) + 8;
 });
 
 
-bot.login(tokenfile.token)
+bot.login(process.env.BOT_TOKEN)
