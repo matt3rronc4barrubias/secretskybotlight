@@ -230,8 +230,8 @@ if(cmd === `${prefix}kick`){
             };
           }
         
-          let coinAmt = Math.floor(Math.random() * 35) + 1;
-          let baseAmt = Math.floor(Math.random() * 35) + 1;
+          let coinAmt = Math.floor(Math.random() * 75) + 1;
+          let baseAmt = Math.floor(Math.random() * 75) + 1;
           console.log(`${coinAmt} ; ${baseAmt}`);
         
           if(coinAmt === baseAmt){
