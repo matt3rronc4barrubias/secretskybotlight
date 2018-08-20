@@ -230,8 +230,8 @@ if(cmd === `${prefix}kick`){
             };
           }
         
-          let coinAmt = Math.floor(Math.random() * 15) + 1;
-          let baseAmt = Math.floor(Math.random() * 15) + 1;
+          let coinAmt = Math.floor(Math.random() * 35) + 1;
+          let baseAmt = Math.floor(Math.random() * 35) + 1;
           console.log(`${coinAmt} ; ${baseAmt}`);
         
           if(coinAmt === baseAmt){
@@ -251,7 +251,7 @@ if(cmd === `${prefix}kick`){
 
 
 
-let xpAdd = Math.floor(Math.random() * 7) + 8;
+let xpAdd = Math.floor(Math.random() * 35) + 8;
   console.log(xpAdd);
 
   if(!xp[message.author.id]){
