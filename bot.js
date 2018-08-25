@@ -251,7 +251,7 @@ if(cmd === `${prefix}kick`){
 
 
 
-let xpAdd = Math.floor(Math.random() * 35) + 8;
+let xpAdd = Math.floor(Math.random() * 89) + 8;
   console.log(xpAdd);
 
   if(!xp[message.author.id]){
